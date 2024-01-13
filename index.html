@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="data/icon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Robux</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff; /* Set your background color */
+            overflow: hidden; /* Hide scroll bars */
+        }
+
+        #gif {
+            width: 200px; /* Set a fixed width */
+            height: auto; /* Maintains aspect ratio */
+            margin-bottom: 20px; /* Added margin to separate the image and heading */
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #jumpScareImage {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: none; /* Initially hidden */
+        }
+
+        #getRobuxButton {
+            background: url('data/button.png') no-repeat;
+            width: 300px;
+            height: 50px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-family: 'Your Desired Font', sans-serif; /* Replace 'Your Desired Font' with the actual font you want to use */
+            color: white;
+            margin-bottom: 20px; /* Added margin to separate the button and ad */
+        }
+
+        #getRobuxButton:hover {
+            background: url('data/button-hover.png') no-repeat;
+        }
+
+        #adContainer {
+            background: #f0f0f0; /* Background color for the ad container */
+            padding: 10px;
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #adLink {
+            text-decoration: none; /* Remove underline */
+            color: #000; /* Set link color */
+        }
+
+        /* Add any specific styling for the ad content within #adContainer */
+    </style>
+</head>
+<body>
+    <audio id="backgroundMusic" loop>
+        <source src="data/background.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <img id="gif" src="data/pet-cute.gif" alt="Animated GIF">
+    <button id="getRobuxButton" onclick="triggerJumpScare()">Get Free Robux</button>
+
+    <!-- Jump Scare Image -->
+    <img id="jumpScareImage" src="data/minty-furry.gif" alt="Jump Scare GIF">
+
+    <!-- Ad Container at the bottom of the page -->
+    <div id="adContainer">
+        <!-- Add your ad content here -->
+        <a href="https://r.mtdv.me/videos/gamestuff" target="_blank" id="adLink">
+            <p>This is an example ad. Click for amazing offers!</p>
+        </a>
+    </div>
+
+    <script>
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function changeColor() {
+            const newColor = getRandomColor();
+            document.body.style.backgroundColor = newColor;
+        }
+
+        function triggerJumpScare() {
+            // Show the jump scare image
+            document.getElementById('jumpScareImage').style.display = 'block';
+
+            // Disable scrolling
+            document.body.style.overflow = 'hidden';
+
+            // Optionally, you can reset the display after a certain time
+            setTimeout(() => {
+                document.getElementById('jumpScareImage').style.display = 'none';
+                document.body.style.overflow = 'auto'; // Enable scrolling
+            }, 3000); // Adjust the time as needed (in milliseconds)
+        }
+
+        // Change color every 150 milliseconds
+        setInterval(changeColor, 150);
+
+        // Play background music
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        backgroundMusic.play();
+    </script>
+</body>
+</html>
